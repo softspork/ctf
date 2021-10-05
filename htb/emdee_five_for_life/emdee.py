@@ -48,7 +48,7 @@ if len(sys.argv) > 1:
         print('time \ ' + str(end-start)[0:6] + ' sec')
     else:
         status = red(status)
-        print('.get \ ' + status)
+        print('.GET \ ' + status)
         sys.exit()
 
     print('\n' +  receive.text)
@@ -73,8 +73,8 @@ if len(sys.argv) > 1:
     send= s.post(rhost, payload)
     end2 = time.time()
 
-    print('\npost \ ' + send.request.url)
-    print('post \ ' + send.request.body )
+    print('\nPOST \ ' + send.request.url)
+    print('POST \ ' + send.request.body )
     print('time \ ' + str(end2-start2)[0:6] + ' sec' + '\n')
 
     for header, value in send.request.headers.items():
@@ -87,7 +87,7 @@ if len(sys.argv) > 1:
     
     for flags in soup2.find_all(['p']):
         if len(flags.text.strip()) < 20:
-            print('\nflag \ ' + red('Oops!') + ' try again..')
+            print('\nflag \ ' + red(flags))
         elif len(flags.text.strip()) > 20:
             print('\nflag \ ' + green(flags.text.strip()))
     
