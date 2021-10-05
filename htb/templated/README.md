@@ -8,7 +8,7 @@ https://www.exploit-db.com/exploits/46386
 
 ___
 
-![Screenshot from 2021-10-06 02-04-04](https://user-images.githubusercontent.com/86022395/136114734-4f7f8df5-c03b-495c-93fe-820b84b3e767.png)
+![Screenshot from 2021-10-06 02-17-47](https://user-images.githubusercontent.com/86022395/136115708-fd0ec72c-3ae7-4323-bee9-852f0878d963.png)
 
 Flask/Jinja2 Remote Code Execution exploit to cat flag.txt from the server.
 
